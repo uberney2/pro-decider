@@ -36,20 +36,4 @@ export class EnvironmentConfigService {
   getDatabaseSync(): boolean | undefined{
     return this.configService.get<boolean>('DATABASE_SYNCHRONIZE');
   }
-
-  getJAuthUrl(): string | undefined{
-    return this.configService.get<string>('JAUTH_URL');
-  }
-
-  getJAuthAppCode(): string | undefined{
-    return this.configService.get<string>('JAUTH_APP_CODE');
-  }
-
-  getJAuthAppSecret(): string | undefined{
-    return this.configService.get<string>('JAUTH_APP_SECRET');
-  }
-
-  getJauthUiRedirectUrl(): string | undefined{
-    return this.configService.get<string>('JAUTH_UI_REDIRECT_URL');
-  }
 }
