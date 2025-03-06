@@ -10,6 +10,11 @@ const { PortfolioEntity } = infrastructure;
 @Module({
   imports: [TypeOrmModule.forFeature([PortfolioEntity])],
   controllers: [PortfolioController],
-  providers: [PortfolioFinderAll, PortfolioTypeOrmRepository],
+  providers: [{
+    provide: 'PortfolioRepository',
+    useClass: PortfolioTypeOrmRepository
+  },
+    PortfolioFinderAll
+  ],
 })
 export class PortfolioModule {}
