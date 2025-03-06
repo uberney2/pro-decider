@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { EnvironmentConfigService } from '../config/environment/environment.service';
+import { PortfolioEntity } from '../../../Portfolio/infrastructure';
 
 
 export const getTypeOrmOptions = (
@@ -12,7 +13,7 @@ export const getTypeOrmOptions = (
   password: config.getDatabasePassword(),
   database: config.getDatabaseName(),
   entities: [
-  
+    PortfolioEntity
   ],
   synchronize: config.getDatabaseSync(),
 });

@@ -32,14 +32,6 @@ class EnvironmentVariables {
   DATABASE_SCHEMA: string;
   @IsBoolean()
   DATABASE_SYNCHRONIZE: boolean;
-  @IsString()
-  JAUTH_URL: string;
-  @IsString()
-  JAUTH_APP_CODE: string;
-  @IsString()
-  JAUTH_APP_SECRET: string;
-  @IsString()
-  JAUTH_UI_REDIRECT_URL: string;
 }
 
 export function validate(config: Record<string, unknown>) {
