@@ -2,9 +2,13 @@ import { Account } from '../domain';
 import { AccountRepository } from '../domain/AccountRepository';
 import { AccountCreatorRequest } from './AccountCreatorRequest';
 import { AccountNotUpdated } from '../domain/exceptions/AccountNotUpdated';
+import { Inject } from '@nestjs/common';
 
 export class AccountUpdater {
-  constructor(private accountRepository: AccountRepository) {}
+  constructor(
+    @Inject('AccountRepository')
+    private readonly accountRepository: AccountRepository
+  ) {}
 
   async run(accountRequest: AccountCreatorRequest): Promise<Account> {
     const accountObject = Account.fromPrimitives(accountRequest);

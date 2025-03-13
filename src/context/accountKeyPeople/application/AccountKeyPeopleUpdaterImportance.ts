@@ -3,9 +3,13 @@ import { KeyPeopleId } from '../../KeyPeople/domain';
 import { AccountKeyPeopleRepository } from '../domain/AccountKeyPeopleRepository';
 import { AccountKeyPeopleNotes } from '../domain/AccountKeyPeopleNotes';
 import { AccountKeyPeopleNotUpdated } from '../domain/exceptions/AccountKeyPeopleNotUpdated';
+import { Inject } from '@nestjs/common';
 
 export class AccountKeyPeopleUpdaterImportance {
-  constructor(private repositoryAccountKeyPeople: AccountKeyPeopleRepository) {}
+  constructor(
+    @Inject('AccountKeyPeopleRepository')
+    private repositoryAccountKeyPeople: AccountKeyPeopleRepository
+  ) {}
 
   async run(
     accountIdParam: string,

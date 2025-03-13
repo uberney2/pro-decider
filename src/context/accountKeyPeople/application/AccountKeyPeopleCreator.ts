@@ -7,11 +7,17 @@ import {
 import { AccountKeyPeopleBase } from './AccountKeyPeopleBase';
 import { AccountId, AccountRepository } from '../../Accounts/domain';
 import { KeyPeopleId, KeyPeopleRepository } from '../../KeyPeople/domain';
+import { Inject } from '@nestjs/common';
 
 export class AccountKeyPeopleCreator extends AccountKeyPeopleBase {
   constructor(
+    @Inject('AccountKeyPeopleRepository')
     private accountKeyPeopleRepository: AccountKeyPeopleRepository,
+
+    @Inject('AccountoRepository')
     protected accountRepository: AccountRepository,
+
+    @Inject('KeyPeopleRepository')
     protected keyPeopleRepository: KeyPeopleRepository
   ) {
     super(accountRepository, keyPeopleRepository);

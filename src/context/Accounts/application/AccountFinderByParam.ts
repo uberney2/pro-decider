@@ -4,9 +4,13 @@ import { AccountId } from '../domain/AccountId';
 import { AccountName } from '../domain/AccountName';
 import { AccountNotFound } from '../domain/exceptions/AccountNotFound';
 import { isUuid } from '../../../../tools/functions/isUuid';
+import { Inject } from '@nestjs/common';
 
 export class AccountFinderByParam {
-  constructor(private repositoryAccount: AccountRepository) {}
+  constructor(
+    @Inject('AccountRepository')
+    private readonly repositoryAccount: AccountRepository
+  ) {}
 
   async run(param: string): Promise<Account> {
     if (isUuid(param)) {

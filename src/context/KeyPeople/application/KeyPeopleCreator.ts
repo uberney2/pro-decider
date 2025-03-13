@@ -8,8 +8,14 @@ import {
 } from '../domain';
 import { KeyPeopleRepository } from '../domain/KeyPeopleRepository';
 import { KeyPeopleAlreadyExists } from '../domain/exceptions/KeyPeopleAlreadyExists';
+import { Inject } from '@nestjs/common';
+
 export class KeyPeopleCreator {
-  constructor(private repository: KeyPeopleRepository) {}
+ 
+  constructor(
+    @Inject('KeyPeopleRepository')
+    private readonly repository: KeyPeopleRepository
+  ) {}
 
   async run(keyPeople: KeyPeopleCreatorRequest): Promise<KeyPeople> {
     const { id, name, role, email } = keyPeople;
