@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AccountController } from './account.controller';
@@ -12,15 +12,16 @@ import {
   AccountFinderAll,
   AccountFinderAllByPortfolioId,
   AccountFinderByParam,
-  AccountUpdater
-} from '../../context/Accounts/application'
+  AccountUpdater,
+} from '../../context/Accounts/application';
 
 import {
   AccountKeyPeopleCreator,
   AccountKeyPeopleRemover,
   AccountKeyPeopleUpdaterImportance,
-  KeyPeopleGetterByAccount
-} from '../../context/accountKeyPeople/application'
+  KeyPeopleGetterByAccount,
+} from '../../context/accountKeyPeople/application';
+
 import { AccountTypeOrmRepository } from '../../context/Accounts/infrastructure';
 import { AccountKeyPeopleTypeOrmRepository } from '../../context/accountKeyPeople/infrastructure';
 import { KeyPeopleModule } from '../key-people/keypeople.module';
@@ -31,23 +32,19 @@ const { AccountKeyPeopleEntity } = accountKeyPeopleInfrastructure;
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([
-      AccountEntity,
-      AccountKeyPeopleEntity,
-      KeyPeopleEntity,
-    ]),
-    KeyPeopleModule,
+    TypeOrmModule.forFeature([AccountEntity, AccountKeyPeopleEntity, KeyPeopleEntity]),
+    forwardRef(() => KeyPeopleModule),
   ],
   controllers: [AccountController],
   providers: [
     {
-        provide: 'AccountRepository',
-        useClass: AccountTypeOrmRepository
+      provide: 'AccountRepository',
+      useClass: AccountTypeOrmRepository,
     },
     {
       provide: 'AccountKeyPeopleRepository',
-      useClass: AccountKeyPeopleTypeOrmRepository
-  },
+      useClass: AccountKeyPeopleTypeOrmRepository,
+    },
     AccountCreator,
     AccountFinderAll,
     AccountFinderAllByPortfolioId,
@@ -57,8 +54,17 @@ const { AccountKeyPeopleEntity } = accountKeyPeopleInfrastructure;
     KeyPeopleGetterByAccount,
     AccountKeyPeopleUpdaterImportance,
     AccountKeyPeopleCreator,
-    ,
-    AccountKeyPeopleTypeOrmRepository
+  ],
+  exports: [
+    AccountCreator,
+    AccountFinderAll,
+    AccountFinderAllByPortfolioId,
+    AccountFinderByParam,
+    AccountKeyPeopleRemover,
+    AccountUpdater,
+    KeyPeopleGetterByAccount,
+    AccountKeyPeopleUpdaterImportance,
+    AccountKeyPeopleCreator,
   ],
 })
 export class AccountsModule {}

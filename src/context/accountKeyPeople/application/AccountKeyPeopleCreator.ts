@@ -14,7 +14,7 @@ export class AccountKeyPeopleCreator extends AccountKeyPeopleBase {
     @Inject('AccountKeyPeopleRepository')
     private accountKeyPeopleRepository: AccountKeyPeopleRepository,
 
-    @Inject('AccountoRepository')
+    @Inject('AccountRepository')
     protected accountRepository: AccountRepository,
 
     @Inject('KeyPeopleRepository')

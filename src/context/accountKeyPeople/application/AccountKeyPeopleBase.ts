@@ -2,14 +2,11 @@ import { AccountId, AccountRepository } from '../../Accounts/domain';
 import { AccountNotFound } from '../../Accounts/domain/exceptions';
 import { KeyPeopleId, KeyPeopleRepository } from '../../KeyPeople/domain';
 import { KeyPeopleNotFound } from '../../KeyPeople/domain/exceptions';
-import { Inject } from '@nestjs/common';
+
 
 export class AccountKeyPeopleBase {
   constructor(
-    @Inject('AccountRepository')
     protected accountRepository: AccountRepository,
-
-    @Inject('KeyPeopleRepository')
     protected keyPeopleRepository: KeyPeopleRepository
   ) {}
 
