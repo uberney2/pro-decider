@@ -2,9 +2,13 @@ import { Project } from '../domain';
 import { ProjectRepository } from '../domain/ProjectRepository';
 import { ProjectRequest } from './ProjectRequest';
 import { ProjectNotUpdated } from '../domain/exceptions/ProjectNotUpdated';
+import { Inject } from '@nestjs/common';
 
 export class ProjectUpdater {
-  constructor(private projectRepository: ProjectRepository) {}
+  constructor(
+    @Inject('ProjectRepository')
+    private readonly projectRepository: ProjectRepository
+  ) {}
 
   async run(projectRequest: ProjectRequest): Promise<Project> {
     const projectObject = Project.fromPrimitives(projectRequest);

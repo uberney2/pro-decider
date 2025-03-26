@@ -4,11 +4,15 @@ import { Plan, PlanRepository } from '../domain';
 import { PlanNotUpdated, PlanNotFound } from '../domain/exceptions';
 import { BaseDimension } from '../../Shared/domain/dimension/application/BaseDimension';
 import { ProjectNotFound } from '../../Projects/domain/exceptions';
+import { Inject } from '@nestjs/common';
 
 export class PlanUpdater extends BaseDimension {
   constructor(
-    protected projectRepository: ProjectRepository,
-    protected planRepository: PlanRepository
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository,
+
+    @Inject('PlanRepository')
+    protected readonly planRepository: PlanRepository
   ) {
     super(planRepository);
   }

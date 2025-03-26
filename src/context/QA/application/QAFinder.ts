@@ -1,3 +1,4 @@
+import { Inject } from '@nestjs/common';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
 import { QA, QARepository } from '../domain';
@@ -5,8 +6,11 @@ import { QANotFound } from '../domain/exceptions';
 
 export class QAFinder extends DimensionValidations {
   constructor(
-    private repository: QARepository,
-    protected projectRepository: ProjectRepository
+    @Inject('QARepository')
+    private readonly repository: QARepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

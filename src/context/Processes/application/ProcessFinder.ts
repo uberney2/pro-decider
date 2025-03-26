@@ -1,3 +1,4 @@
+import { Inject } from '@nestjs/common';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
 import { Process, ProcessRepository } from '../domain';
@@ -5,8 +6,11 @@ import { ProcessNotFound } from '../domain/exceptions';
 
 export class ProcessFinder extends DimensionValidations {
   constructor(
-    private repository: ProcessRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('ProcessRepository')
+    private readonly repository: ProcessRepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

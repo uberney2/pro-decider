@@ -4,11 +4,15 @@ import { Team, TeamRepository } from '../domain';
 import { TeamNotUpdated, TeamNotFound } from '../domain/exceptions';
 import { BaseDimension } from '../../Shared/domain/dimension/application/BaseDimension';
 import { ProjectNotFound } from '../../Projects/domain/exceptions';
+import { Inject } from '@nestjs/common';
 
 export class TeamUpdater extends BaseDimension {
   constructor(
-    protected projectRepository: ProjectRepository,
-    protected teamRepository: TeamRepository
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository,
+
+    @Inject('TeamRepository')
+    protected readonly teamRepository: TeamRepository
   ) {
     super(teamRepository);
   }

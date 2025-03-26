@@ -5,6 +5,12 @@ import { BuOwnerEntity } from '../../../BuOwner/infrastructure';
 import { AccountEntity } from 'src/context/Accounts/infrastructure';
 import { KeyPeopleEntity } from 'src/context/KeyPeople/infrastructure';
 import { AccountKeyPeopleEntity } from 'src/context/accountKeyPeople/infrastructure';
+import { GutEntity } from 'src/context/Gut';
+import { PlanEntity } from 'src/context/Plans';
+import { ProcessEntity } from 'src/context/Processes';
+import { ProjectEntity } from 'src/context/Projects/infrastructure';
+import { QaEntity } from 'src/context/QA';
+import { TeamEntity } from 'src/context/Teams';
 
 
 export const getTypeOrmOptions = (
@@ -21,7 +27,13 @@ export const getTypeOrmOptions = (
     BuOwnerEntity,
     AccountEntity,
     KeyPeopleEntity,
-    AccountKeyPeopleEntity
+    AccountKeyPeopleEntity,
+    GutEntity,
+    PlanEntity,
+    ProcessEntity,
+    ProjectEntity,
+    QaEntity,
+    TeamEntity
   ],
   synchronize: config.getDatabaseSync(),
 });

@@ -4,11 +4,15 @@ import { QA, QARepository } from '../domain';
 import { QANotUpdated, QANotFound } from '../domain/exceptions';
 import { BaseDimension } from '../../Shared/domain/dimension/application/BaseDimension';
 import { ProjectNotFound } from '../../Projects/domain/exceptions';
+import { Inject } from '@nestjs/common';
 
 export class QAUpdater extends BaseDimension {
   constructor(
-    protected projectRepository: ProjectRepository,
-    protected qaRepository: QARepository
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository,
+
+    @Inject('QARepository')
+    protected readonly qaRepository: QARepository
   ) {
     super(qaRepository);
   }

@@ -3,9 +3,13 @@ import { ProjectName } from './../domain/ProjectName';
 import { Project, ProjectId } from '../domain';
 import { ProjectRepository } from '../domain/ProjectRepository';
 import { isUuid } from 'tools/functions/isUuid';
+import { Inject } from '@nestjs/common';
 
 export class ProjectFinderByParam {
-  constructor(private projectRepository: ProjectRepository) {}
+  constructor(
+    @Inject('ProjectRepository')
+    private readonly projectRepository: ProjectRepository
+  ) {}
 
   async run(param: string): Promise<Project> {
     if (isUuid(param)) {

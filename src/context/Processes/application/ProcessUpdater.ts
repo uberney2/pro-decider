@@ -7,8 +7,8 @@ import { ProjectNotFound } from '../../Projects/domain/exceptions';
 
 export class ProcessUpdater extends BaseDimension {
   constructor(
-    protected projectRepository: ProjectRepository,
-    protected processRepository: ProcessRepository
+    protected readonly projectRepository: ProjectRepository,
+    protected readonly processRepository: ProcessRepository
   ) {
     super(processRepository);
   }

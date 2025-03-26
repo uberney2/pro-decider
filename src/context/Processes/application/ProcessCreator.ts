@@ -2,11 +2,15 @@ import { ProcessCreatorRequest } from './ProcessCreatorRequest';
 import { Process, ProcessRepository, exceptions } from '../domain';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
+import { Inject } from '@nestjs/common';
 
 export class ProcessCreator extends DimensionValidations {
   constructor(
-    private repository: ProcessRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('ProcessRepository')
+    private readonly repository: ProcessRepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

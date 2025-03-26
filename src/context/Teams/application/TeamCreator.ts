@@ -2,11 +2,15 @@ import { TeamCreatorRequest } from './TeamCreatorRequest';
 import { Team, TeamRepository, exceptions } from '../domain';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
+import { Inject } from '@nestjs/common';
 
 export class TeamCreator extends DimensionValidations {
   constructor(
-    private repository: TeamRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('TeamRepository')
+    private readonly repository: TeamRepository,
+    
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

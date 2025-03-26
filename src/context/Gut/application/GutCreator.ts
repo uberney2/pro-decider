@@ -2,12 +2,16 @@ import { GutCreatorRequest } from './GutCreatorRequest';
 import { Gut, GutRepository, exceptions } from '../domain';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
+import { Inject } from '@nestjs/common';
 
 
 export class GutCreator extends DimensionValidations {
   constructor(
-    private repository: GutRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('GutRepository')
+    private readonly repository: GutRepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

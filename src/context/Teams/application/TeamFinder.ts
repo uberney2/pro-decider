@@ -1,3 +1,4 @@
+import { Inject } from '@nestjs/common';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
 import { Team, TeamRepository } from '../domain';
@@ -5,8 +6,11 @@ import { TeamNotFound } from '../domain/exceptions/TeamNotFound';
 
 export class TeamFinder extends DimensionValidations {
   constructor(
-    private repository: TeamRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('TeamRepository')
+    private readonly repository: TeamRepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

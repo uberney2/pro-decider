@@ -4,11 +4,15 @@ import { Gut, GutRepository } from '../domain';
 import { GutNotUpdated, GutNotFound } from '../domain/exceptions';
 import { BaseDimension } from '../../Shared/domain/dimension/application/BaseDimension';
 import { ProjectNotFound } from '../../Projects/domain/exceptions';
+import { Inject } from '@nestjs/common';
 
 export class GutUpdater extends BaseDimension {
   constructor(
-    protected projectRepository: ProjectRepository,
-    protected gutRepository: GutRepository
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository,
+
+    @Inject('GutRepository')
+    protected readonly gutRepository: GutRepository
   ) {
     super(gutRepository);
   }

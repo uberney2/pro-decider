@@ -1,3 +1,4 @@
+import { Inject } from '@nestjs/common';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
 import { Plan, PlanRepository } from '../domain';
@@ -5,8 +6,11 @@ import { PlanNotFound } from '../domain/exceptions/PlanNotFound';
 
 export class PlanFinder extends DimensionValidations {
   constructor(
-    private repository: PlanRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('PlanRepository')
+    private readonly repository: PlanRepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

@@ -3,11 +3,15 @@ import { Plan, PlanRepository, exceptions } from '../domain';
 import { ProjectRepository } from '../../Projects/domain/ProjectRepository';
 import { PlanCreatorRequest } from './PlanRequest';
 import { ProjectId } from '../../Projects/domain';
+import { Inject } from '@nestjs/common';
 
 export class PlanCreator extends DimensionValidations {
   constructor(
-    private planRepository: PlanRepository,
-    protected projectRepository: ProjectRepository
+    @Inject('PlanRepository')
+    private readonly planRepository: PlanRepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }

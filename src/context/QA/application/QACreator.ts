@@ -2,11 +2,15 @@ import { QACreatorRequest } from './QACreatorRequest';
 import { QA, QARepository, exceptions } from '../domain';
 import { ProjectId, ProjectRepository } from '../../Projects/domain';
 import { DimensionValidations } from '../../Shared/application/dimension/DimensionValidations';
+import { Inject } from '@nestjs/common';
 
 export class QACreator extends DimensionValidations {
   constructor(
-    private repository: QARepository,
-    protected projectRepository: ProjectRepository
+    @Inject('QARepository')
+    private readonly repository: QARepository,
+
+    @Inject('ProjectRepository')
+    protected readonly projectRepository: ProjectRepository
   ) {
     super(projectRepository);
   }
