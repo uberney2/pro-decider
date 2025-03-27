@@ -11,6 +11,7 @@ import { ProcessEntity } from 'src/context/Processes';
 import { ProjectEntity } from 'src/context/Projects/infrastructure';
 import { QaEntity } from 'src/context/QA';
 import { TeamEntity } from 'src/context/Teams';
+import { AuthPeopleEntity } from 'src/context/AuthPeople/infrastructure/typeorm/AuthPeopleEntity';
 
 
 export const getTypeOrmOptions = (
@@ -33,7 +34,8 @@ export const getTypeOrmOptions = (
     ProcessEntity,
     ProjectEntity,
     QaEntity,
-    TeamEntity
+    TeamEntity,
+    AuthPeopleEntity
   ],
   synchronize: config.getDatabaseSync(),
 });
