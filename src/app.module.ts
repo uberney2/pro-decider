@@ -5,6 +5,7 @@ import { PortfolioModule } from './app/portfolio/portfolio.module';
 import {BuOwnerModule} from './app/bu-owner/bu-owner.module';
 import {KeyPeopleModule} from './app/key-people/keypeople.module';
 import { infrastructure as sharedInfrastructure } from './context/Shared/index';
+import { ProjectModule } from './app/project/project.module';
 
 const { PersistanceModule } = sharedInfrastructure;
 
@@ -13,7 +14,9 @@ const { PersistanceModule } = sharedInfrastructure;
     PersistanceModule,
     PortfolioModule,
     BuOwnerModule,
-    KeyPeopleModule
+    KeyPeopleModule,
+    ProjectModule
+
 
   ],
   controllers: [],
