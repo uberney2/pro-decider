@@ -6,6 +6,7 @@ import {BuOwnerModule} from './app/bu-owner/bu-owner.module';
 import {KeyPeopleModule} from './app/key-people/keypeople.module';
 import { infrastructure as sharedInfrastructure } from './context/Shared/index';
 import { ProjectModule } from './app/project/project.module';
+import { AuthModule } from './app/auth-people/auth.module';
 
 const { PersistanceModule } = sharedInfrastructure;
 
@@ -15,7 +16,8 @@ const { PersistanceModule } = sharedInfrastructure;
     PortfolioModule,
     BuOwnerModule,
     KeyPeopleModule,
-    ProjectModule
+    ProjectModule,
+    AuthModule
 
 
   ],
