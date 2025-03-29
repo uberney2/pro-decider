@@ -34,6 +34,9 @@ export class AuthPeopleTypeOrmRepository implements AuthPeopleRepository {
   async findByEmail(email: AuthPeopleEmail): Promise<AuthPeople | null> {
     const authPeopleRecord = await this.authPeopleRepository.findOne({
       where: { authPeopleEmail: email.value },
+      relations: {
+        portfolio: true,
+      }
     });
 
     if (!authPeopleRecord) return null;
@@ -42,6 +45,7 @@ export class AuthPeopleTypeOrmRepository implements AuthPeopleRepository {
       id: authPeopleRecord.id,
       authPeopleEmail: authPeopleRecord.authPeopleEmail,
       authPeoplePassword: authPeopleRecord.authPeoplePassword,
+      portfolio: authPeopleRecord.portfolio[0]
     });
   }
 }

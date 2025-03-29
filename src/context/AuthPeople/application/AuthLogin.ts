@@ -33,6 +33,9 @@ export class AuthLogin {
     const payload = { sub: authPerson.id.value, email: authPerson.authPeopleEmail.value };
     return {
       access_token: this.jwtService.sign(payload),
+      authEmail: authPerson.authPeopleEmail.value,
+      authId: authPerson.id.value,
+      portfolio: authPerson.portfolio.toPrimitives()
     };
   }
 }
