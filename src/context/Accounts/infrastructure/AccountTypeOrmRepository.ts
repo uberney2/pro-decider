@@ -71,7 +71,6 @@ export class AccountTypeOrmRepository implements AccountRepository {
 
   async update(account: Account): Promise<boolean> {
     const accountEntity = this.toEntity(account);
-    delete accountEntity.name;
     const updateResult: UpdateResult = await this.accountRepository.update(
       { id: accountEntity.id },
       accountEntity
