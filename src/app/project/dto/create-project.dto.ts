@@ -40,19 +40,15 @@ export class CreateProjectDto {
   totalHours: string;
 
   @IsString()
-  @IsNotEmpty()
   closingProbability: string;
 
   @IsString()
-  @IsNotEmpty()
   latamRevenue: string;
 
   @IsString()
-  @IsNotEmpty()
   latamParticipationPercentage: string;
 
   @IsString()
-  @IsNotEmpty()
   activeEmployees: string;
 
   @IsOptional()
