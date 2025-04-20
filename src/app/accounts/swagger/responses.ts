@@ -5,7 +5,7 @@ export const GetAllAccount = {
       example: [
         {
           id: 'a60b831a-d782-4390-a35b-519af3293582',
-          name: 'Perficient',
+          name: 'empresa',
           buOwner: {
             id: '02fb08b8-09ce-42b7-b06a-384f238bf2b5',
             name: 'BuName',
@@ -24,7 +24,7 @@ export const GetAllAccount = {
               id: 'b60b831a-d782-4390-a36b-519af3293589',
               name: 'name',
               role: 'director',
-              email: 'admin90@perficient.com',
+              email: 'admin90@correo.com',
               note: 'note',
               createdAt: '2022-12-31T22:09:23.696Z',
               updatedAt: '2022-12-31T22:09:23.696Z',
@@ -35,7 +35,7 @@ export const GetAllAccount = {
         },
         {
           id: 'a60b831a-d782-4390-a35b-519af3293583',
-          name: 'Perficient2',
+          name: 'empresa2',
           buOwner: 'Colombia',
           portfolio: 'portfolio',
           status: 'active',
@@ -44,7 +44,7 @@ export const GetAllAccount = {
               id: 'b60b831a-d782-4390-a36b-519af3293589',
               name: 'name',
               role: 'director',
-              email: 'admin90@perficient.com',
+              email: 'admin90@correo.com',
               note: 'note2',
               createdAt: '2022-12-31T22:09:23.696Z',
               updatedAt: '2022-12-31T22:09:23.696Z',
@@ -53,7 +53,7 @@ export const GetAllAccount = {
               id: 'b60b831a-d782-4390-a36b-519af3293590',
               name: 'name',
               role: 'director',
-              email: 'admin91@perficient.com',
+              email: 'admin91@correo.com',
               note: 'note3',
               createdAt: '2023-01-01T02:01:52.970Z',
               updatedAt: '2023-01-01T02:01:52.970Z',
@@ -73,7 +73,7 @@ export const AccountFound = {
     'application/json': {
       example: {
         id: 'a60b831a-d782-4390-a35b-519af3293582',
-        name: 'Perficient',
+        name: 'correo',
         buOwner: {
           id: '02fb08b8-09ce-42b7-b06a-384f238bf2b5',
           name: 'BuName',
@@ -92,7 +92,7 @@ export const AccountFound = {
             id: 'b60b831a-d782-4390-a36b-519af3293589',
             name: 'name',
             role: 'director',
-            email: 'admin90@perficient.com',
+            email: 'admin90@correo.com',
             note: 'note',
             createdAt: '2022-12-31T22:09:23.696Z',
             updatedAt: '2022-12-31T22:09:23.696Z',
@@ -111,7 +111,7 @@ export const UpdatedAccount = {
     'application/json': {
       example: {
         id: 'a60b831a-d782-4390-a35b-519af3293582',
-        name: 'Perficient',
+        name: 'empresa',
         buOwner: {
           id: '02fb08b8-09ce-42b7-b06a-384f238bf2b5',
           name: 'BuName',
@@ -130,7 +130,7 @@ export const UpdatedAccount = {
             id: 'b60b831a-d782-4390-a36b-519af3293589',
             name: 'name',
             role: 'director',
-            email: 'admin90@perficient.com',
+            email: 'admin90@correo.com',
             note: 'note',
             createdAt: '2022-12-31T22:09:23.696Z',
             updatedAt: '2022-12-31T22:09:23.696Z',
@@ -173,7 +173,7 @@ export const KeyPeopleWithNotesFound = {
         id: 'b60b831a-d782-4390-a36b-519af3293589',
         name: 'Name',
         role: 'role',
-        email: 'email@perficient.com',
+        email: 'email@correo.com',
         note: 'importance',
         createdAt: '2022-12-31T22:09:55.297Z',
         updatedAt: '2022-12-31T22:09:55.297Z',

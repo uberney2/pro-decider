@@ -28,7 +28,7 @@ export class CreateKeyPeopleDto {
 
   @ApiProperty({
     description: 'Email of the new Key Person',
-    default: 'Project ownernicolas.jema@perficient.com',
+    default: 'Projectowner@correo.com',
   })
   @IsString()
   @IsNotEmpty()

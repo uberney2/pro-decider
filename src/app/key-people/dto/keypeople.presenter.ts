@@ -16,7 +16,7 @@ export class KeyPeoplePresenter {
   name?: string;
 
   @ApiProperty({
-    example: 'nicolas.jema@perficient.com',
+    example: 'jema@correo.com',
     description: 'Key Person email',
     uniqueItems: true,
   })
