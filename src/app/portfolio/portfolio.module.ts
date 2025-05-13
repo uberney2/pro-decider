@@ -1,6 +1,6 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
-import { infrastructure } from '../../context/Portfolio/index';
+import { infrastructure, PortfolioCreator } from '../../context/Portfolio/index';
 import { PortfolioController } from './portfolio.controller';
 import { PortfolioTypeOrmRepository } from '../../context/Portfolio/infrastructure/index'
 import { PortfolioFinderAll } from '../../context/Portfolio/application/PortfolioFinderAll'
@@ -14,7 +14,8 @@ const { PortfolioEntity } = infrastructure;
     provide: 'PortfolioRepository',
     useClass: PortfolioTypeOrmRepository
   },
-    PortfolioFinderAll
+    PortfolioFinderAll,
+    PortfolioCreator
   ],
 })
 export class PortfolioModule {}
